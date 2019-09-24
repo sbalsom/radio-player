@@ -20,15 +20,19 @@ body {
    padding: 20px 20px;
    text-indent: 0;
    list-style-type: none;
-   font-family: 'Poppins', 'Arial', sans-serif;
-   color: #9098a5;
+   color: #999999;
  }
 
+
+.flex {
+  display:flex;
+}
 .flex-center-x {
   display:flex;
   justify-content:center;
   align-items:center;
 }
+
 
 .flex-vert-align {
   display:flex;
@@ -69,22 +73,29 @@ body {
 
 .search__input {
   border:none;
-  margin:0 auto;
+  margin: 20px;
+  background:#edeeed;
+  padding:10px;
+  border-radius:10px;
+  width:273px;
 
 }
 
-h1{
-  font-family: 'Poppins', 'Arial', sans-serif;
-  font-variant: small-caps;
+.search__input:focus {
+  border:solid 2px #999999;
+  outline:none;
+  background:#edeeed;
 }
-
-
 
 .radio-box__radio-list {
   height:500px;
 }
+
+.radio-box__actions {
+  height: 100px;
+}
 .radio-box__shell {
-  border: 1px solid red;
+  box-shadow: #423f3f 0px 0px 10px -4px;
   height:100%;
   border-radius: 20px 20px 0 0;
   background: white;
@@ -96,28 +107,54 @@ h1{
 
 .radio-box__album-image {
   border-radius:10px;
+}
 
+.now-playing__album-image {
+  margin:20px;
+  width:150px;
 }
 
 
 .radio-box__now-playing {
-   border: 1px solid blue;
-  height:400px;
+
+  height:300px;
   background:white;
-  border-radius:20px 20px 0 0;
-  background:#9098a5;
+  border-radius:20px 20px 0px 0px;
+  background:#a2acea;
   position: absolute;
   bottom: 0;
   left: 0;
   width: 375px;
 }
 
-h4 {
-    color:#e6af69;
-    font-variant: small-caps;
-    font-size:15px;
-  }
-  h3, h4 {
-    margin:0;
-    text-align:center;
-  }
+.now-playing__album-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.now-playing__album-info h3 {
+  color:white;
+  margin:5px;
+  text-align:left;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.now-playing__album-info h4 {
+  color:white;
+  margin:5px;
+  font-size:15px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.now-playing__buttons {
+  display:flex;
+  justify-content:space-around;
+}
+
+.download-button {
+  color:#999999;
+  background-color:white;
+  padding:10px;
+  border-radius:10px;
+}

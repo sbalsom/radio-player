@@ -7,27 +7,21 @@ class Radio extends Component {
     this.state = {
       albums: [],
       results: [],
-      currentAlbum: [],
-      currentTrack: []
+      currentAlbum: null
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
   }
 
-  componentWillUpdate() {
-    // in case i need to catch something before updating
-  }
+  // componentWillUpdate() {
+  //   // in case i need to catch something before updating
+  // }
   componentDidUpdate(prevProps, prevState) {
     // updates the current station display box only if one is selected
-      // const url = this.state.albums[0].image
-      console.log(this.state.results);
-      console.log(this.state.albums);
+      // console.log(this.state.results);
+      // console.log(this.state.albums);
       console.log(this.state.currentAlbum);
-      // return <img
-      //      src={url}
-      //      className="radio-box__album-image"
-      //     alt="sadie"
-      //    />
+
   }
   handleClick(e) {
     console.log(e.currentTarget);
@@ -59,7 +53,6 @@ class Radio extends Component {
       .then(handleErrors)
       .then(results => {
          this.setState({ albums: results.results });
-         console.log(this.props.children)
       });
   }
 
@@ -83,25 +76,58 @@ class Radio extends Component {
       </li>
      ));
 
+     // let firstTrack = ''
+     // if(this.state.currentAlbum.tracks) {
+     //  firstTrack = this.state.currentAlbum.tracks[0].name
+     // }
+     // dynamic download button
+     let downloadButton = ''
+     if(this.state.currentAlbum !== null) {
+      downloadButton = <a href={this.state.currentAlbum.zip}>
+      <i className="fas fa-download download-button"></i></a>
+     }
+     // dynamic album info
+     let currentAlbumInfo = ''
+      if(this.state.currentAlbum !== null) {
+        currentAlbumInfo = <>
+          <h3>{this.state.currentAlbum.name}</h3>
+          <h4>{this.state.currentAlbum.artist_name}</h4>
+        </>
+      }
+      // dynamic album image
+      let albumImage = ''
+      if(this.state.currentAlbum !== null) {
+        albumImage = <img src={this.state.currentAlbum.image} className="radio-box__album-image now-playing__album-image"/>
+      }
+
     return (
       <div>
         <div className="radio-box">
           <div className="search">
             <div className="search__header">
-              <i class="fas fa-chevron-left"></i>
-              Radio Player
-              <i class="fas fa-ellipsis-v"></i>
+              <i className="fas fa-chevron-left"></i>
+              Search By Album
+              <i className="fas fa-ellipsis-v"></i>
             </div>
-            <Search myClick={this.onClick} setState={p => {this.handleSearch(p)}}/>
+            <div className="flex-center-x ">
+              <Search myClick={this.onClick} setState={p => {this.handleSearch(p)}}/>
+            </div>
           </div>
           <div className="radio-box__shell">
+          <div className="radio-box__actions"></div>
             <div className="overflow">
               <ul id="radio-box__radio-list">{albums}</ul>
             </div>
           </div>
           <div className="radio-box__now-playing">
-            <div className="radio-box__current-album">
-              <img src={this.state.currentAlbum.image} className="radio-box__album-image"/>
+            <div className="now-playing__album flex">
+              {albumImage}
+              <div className="now-playing__album-info">
+                {currentAlbumInfo}
+              </div>
+            </div>
+            <div className="now-playing__buttons">
+            {downloadButton}
             </div>
           </div>
         </div>
