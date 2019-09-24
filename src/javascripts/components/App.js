@@ -1,12 +1,11 @@
 import React from 'react';
-import logo from './logo.svg';
 import Radio from './Radio'
-import './App.css';
+import '../../stylesheets/App.css';
 
 function App() {
   return (
     <div className="app">
-      <Radio type="radio" />
+      <Radio type="radio"></Radio>
     </div>
   );
 }

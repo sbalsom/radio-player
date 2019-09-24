@@ -1,0 +1,123 @@
+/*font-family: 'Didact Gothic', sans-serif;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Montserrat Alternates', sans-serif;
+*/
+
+.App {
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+}
+
+body {
+  background: white;
+}
+ ul {
+    padding:0;
+    display:flex;
+ }
+ li {
+   margin:0;
+   padding: 20px 20px;
+   text-indent: 0;
+   list-style-type: none;
+   font-family: 'Poppins', 'Arial', sans-serif;
+   color: #9098a5;
+ }
+
+.flex-center-x {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.flex-vert-align {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.hidden {
+  display:none;
+}
+
+/*// component styles*/
+
+
+.radio-box {
+  display:flex;
+  flex-direction:column;
+  justify-content: space-between;
+  margin:20px;
+  background: white;
+  height: 812px;
+  width:375px;
+  border-radius:20px;
+  box-shadow: black 3px 9px 28px -6px;
+  position:relative;
+}
+
+.search {
+  color:#999999;
+  padding:20px;
+  height: 100px;
+}
+
+.search__header {
+  display:flex;
+  justify-content:space-between;
+}
+
+.search__input {
+  border:none;
+  margin:0 auto;
+
+}
+
+h1{
+  font-family: 'Poppins', 'Arial', sans-serif;
+  font-variant: small-caps;
+}
+
+
+
+.radio-box__radio-list {
+  height:500px;
+}
+.radio-box__shell {
+  border: 1px solid red;
+  height:100%;
+  border-radius: 20px 20px 0 0;
+  background: white;
+}
+
+.overflow {
+  overflow:scroll;
+}
+
+.radio-box__album-image {
+  border-radius:10px;
+
+}
+
+
+.radio-box__now-playing {
+   border: 1px solid blue;
+  height:400px;
+  background:white;
+  border-radius:20px 20px 0 0;
+  background:#9098a5;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 375px;
+}
+
+h4 {
+    color:#e6af69;
+    font-variant: small-caps;
+    font-size:15px;
+  }
+  h3, h4 {
+    margin:0;
+    text-align:center;
+  }
