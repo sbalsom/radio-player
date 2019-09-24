@@ -13,14 +13,8 @@ class Radio extends Component {
     this.handleSearch = this.handleSearch.bind(this);
   }
 
-  // componentWillUpdate() {
-  //   // in case i need to catch something before updating
-  // }
   componentDidUpdate(prevProps, prevState) {
     // updates the current station display box only if one is selected
-      // console.log(this.state.results);
-      // console.log(this.state.albums);
-      console.log(this.state.currentAlbum);
 
   }
   handleClick(e) {
@@ -44,7 +38,8 @@ class Radio extends Component {
     const handleErrors = response => {
       if (!response.ok)
         console.error(`${response.status}: ${response.statusText}`);
-      return response.json();
+        return response.json();
+
     };
     // fetches API once component is mounted
     fetch(
@@ -52,6 +47,7 @@ class Radio extends Component {
     )
       .then(handleErrors)
       .then(results => {
+        console.log(results)
          this.setState({ albums: results.results });
       });
   }
@@ -76,10 +72,6 @@ class Radio extends Component {
       </li>
      ));
 
-     // let firstTrack = ''
-     // if(this.state.currentAlbum.tracks) {
-     //  firstTrack = this.state.currentAlbum.tracks[0].name
-     // }
      // dynamic download button
      let downloadButton = ''
      if(this.state.currentAlbum !== null) {
@@ -97,7 +89,7 @@ class Radio extends Component {
       // dynamic album image
       let albumImage = ''
       if(this.state.currentAlbum !== null) {
-        albumImage = <img src={this.state.currentAlbum.image} className="radio-box__album-image now-playing__album-image"/>
+        albumImage = <img src={this.state.currentAlbum.image} className="radio-box__album-image now-playing__album-image" alt="the cover of the current album"/>
       }
 
     return (
