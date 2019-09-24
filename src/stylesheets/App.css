@@ -5,11 +5,11 @@ font-family: 'Montserrat Alternates', sans-serif;
 
 .App {
   font-family: 'Montserrat', sans-serif;
-  text-align: center;
 }
 
 body {
   background: white;
+  padding:5vh 30vw;
 }
  ul {
     padding:0;
@@ -149,7 +149,8 @@ body {
 
 .now-playing__buttons {
   display:flex;
-  justify-content:space-around;
+  justify-content:flex-end;
+  padding:20px 20px 0 20px;
 }
 
 .download-button {

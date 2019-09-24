@@ -120,15 +120,16 @@ class Radio extends Component {
             </div>
           </div>
           <div className="radio-box__now-playing">
+            <div className="now-playing__buttons">
+            {downloadButton}
+            </div>
             <div className="now-playing__album flex">
               {albumImage}
               <div className="now-playing__album-info">
                 {currentAlbumInfo}
               </div>
             </div>
-            <div className="now-playing__buttons">
-            {downloadButton}
-            </div>
+
           </div>
         </div>
       </div>
